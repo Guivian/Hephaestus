@@ -17,6 +17,7 @@ x86/
 [Ww][Ii][Nn]32/
 [Aa][Rr][Mm]/
 [Aa][Rr][Mm]64/
+bcl/
 bld/
 [Bb]in/
 [Oo]bj/
@@ -33,6 +34,9 @@ ScaffoldingReadMe.txt
 
 # NuGet Packages
 *.nupkg
+packages/
+*.nuget.props
+*.nuget.targets
 # NuGet Symbol Packages
 *.snupkg
 
@@ -43,6 +47,14 @@ ScaffoldingReadMe.txt
 ~$*
 *~
 CodeCoverage/
+.vs/
+.idea/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+appsettings.Development.json
+*.Secrets.json
 
 # MSBuild Binary and Structured Log
 *.binlog
