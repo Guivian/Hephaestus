@@ -21,7 +21,7 @@ namespace hephaestus_web
             txtEmail.CssClass = "form-control";
             txtLocalidade.CssClass = "form-control";
             
-            wrapper2FA.Style.Remove("pointer-events");
+            wrapper2FA.Style.Add("pointer-events", "auto");
         }
 
         protected void btnGuardar_Click(object sender, EventArgs e)

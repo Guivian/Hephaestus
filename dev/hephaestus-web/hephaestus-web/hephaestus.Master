@@ -20,8 +20,8 @@
             <div class="container-scroller">
                 <nav class="sidebar sidebar-offcanvas" id="sidebar">
                     <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-                        <a class="sidebar-brand brand-logo" href="../../index.html"><img src="../../assets/images/logo.svg" alt="logo" /></a>
-                        <a class="sidebar-brand brand-logo-mini" href="../../index.html"><img src="../../assets/images/logo-mini.svg" alt="logo" /></a>
+                        <a class="sidebar-brand brand-logo" href="../../index.html"><img src="../../assets/images/logo.svg?v=4" alt="logo" /></a>
+                        <a class="sidebar-brand brand-logo-mini" href="../../index.html"><img src="../../assets/images/logo-mini.svg?v=4" alt="logo" /></a>
                     </div>
                     <ul class="nav">
                         <li class="nav-item profile">
@@ -152,10 +152,10 @@
                 <div class="container-fluid page-body-wrapper">
                     <nav class="navbar p-0 fixed-top d-flex flex-row">
                         <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
-                            <a class="navbar-brand brand-logo-mini" href="../../index.html"><img src="../../assets/images/logo-mini.svg" alt="logo" /></a>
+                            <a class="navbar-brand brand-logo-mini" href="../../index.html"><img src="../../assets/images/logo-mini.svg?v=2" alt="logo" /></a>
                         </div>
                         <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
-                            <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+                            <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize" style="margin-left: -1rem;">
                                 <span class="mdi mdi-menu"></span>
                             </button>
                             <ul class="navbar-nav w-100">
