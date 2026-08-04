@@ -28,7 +28,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Palavra-Passe</label>
-                                            <input type="text" class="form-control p_input" />
+                                            <input type="password" class="form-control p_input" />
                                         </div>
                                         <div class="form-group d-flex align-items-center justify-content-between">
                                             <div class="form-check">

@@ -20,8 +20,8 @@
             <div class="container-scroller">
                 <nav class="sidebar sidebar-offcanvas" id="sidebar">
                     <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-                        <a class="sidebar-brand brand-logo" href="../../index.html"><img src="../../assets/images/logo.svg?v=4" alt="logo" /></a>
-                        <a class="sidebar-brand brand-logo-mini" href="../../index.html"><img src="../../assets/images/logo-mini.svg?v=4" alt="logo" /></a>
+                        <a class="sidebar-brand brand-logo" href="dashboard.aspx"><img src="../../assets/images/logo.svg?v=4" alt="logo" /></a>
+                        <a class="sidebar-brand brand-logo-mini" href="dashboard.aspx"><img src="../../assets/images/logo-mini.svg?v=4" alt="logo" /></a>
                     </div>
                     <ul class="nav">
                         <li class="nav-item profile">
@@ -49,7 +49,7 @@
                                         </div>
                                     </a>
                                     <div class="dropdown-divider"></div>
-                                    <a href="#" class="dropdown-item preview-item">
+                                    <a href="change_password.aspx" class="dropdown-item preview-item">
                                         <div class="preview-thumbnail">
                                             <div class="preview-icon bg-dark rounded-circle">
                                                 <i class="mdi mdi-onepassword  text-info"></i>

@@ -834,6 +834,7 @@
     <Content Include="assets\vendors\select2\select2.min.css" />
     <Content Include="assets\vendors\select2\select2.min.js" />
     <Content Include="assets\vendors\typeahead.js\typeahead.bundle.min.js" />
+    <Content Include="change_password.aspx" />
     <Content Include="dashboard.aspx" />
     <Content Include="gulp-tasks\inject.js" />
     <Content Include="gulp-tasks\serve.js" />
@@ -846,6 +847,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="change_password.aspx.cs">
+      <DependentUpon>change_password.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="change_password.aspx.designer.cs">
+      <DependentUpon>change_password.aspx</DependentUpon>
+    </Compile>
     <Compile Include="dashboard.aspx.cs">
       <DependentUpon>dashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

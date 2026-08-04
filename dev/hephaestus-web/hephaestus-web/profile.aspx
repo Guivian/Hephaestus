@@ -62,6 +62,7 @@
                                 <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#deactivateModal">Desativar conta</button>
                             </div>
                             <div class="text-right">
+                                <a href="change_password.aspx" class="btn btn-outline-secondary mr-2">Alterar Palavra-passe</a>
                                 <asp:Button ID="btnEditar" runat="server" Text="Editar" CssClass="btn btn-primary" OnClick="btnEditar_Click" />
                                 <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" CssClass="btn btn-danger mr-2" OnClick="btnCancelar_Click" Visible="false" />
                                 <asp:Button ID="btnGuardar" runat="server" Text="Guardar" CssClass="btn btn-success" OnClick="btnGuardar_Click" Visible="false" />
