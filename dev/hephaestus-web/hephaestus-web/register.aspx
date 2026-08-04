@@ -59,7 +59,7 @@
                                                 </div>
                                             </button>
                                         </div>
-                                        <p class="sign-up text-center mt-3">J&aacute; tem uma conta? <a href="https://localhost:44383/login.aspx">Entrar</a></p>
+                                        <p class="sign-up text-center mt-3">J&aacute; tem uma conta? <a href="login.aspx">Entrar</a></p>
                                         <p class="terms text-center">Ao criar uma conta est&aacute; a aceitar os nossos <a href="#">Termos &amp; Condi&ccedil;&otilde;es</a></p>
                                     </div>
                                 </div>

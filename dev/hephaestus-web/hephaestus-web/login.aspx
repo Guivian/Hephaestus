@@ -59,7 +59,7 @@
                                                 </div>
                                             </button>
                                         </div>
-                                        <p class="sign-up">Não tem conta? <a href="https://localhost:44383/register.aspx">Registo</a></p>
+                                        <p class="sign-up">Não tem conta? <a href="register.aspx">Registo</a></p>
                                     </div>
                                 </div>
                             </div>

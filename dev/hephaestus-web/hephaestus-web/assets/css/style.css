@@ -21242,4 +21242,80 @@ div.tagsinput {
         }
 
 
-/*# sourceMappingURL=maps/style.css.map */
+
+.readonly-field {
+    background-color: #2A3038 !important;
+    color: #6c7293 !important;
+    border: 1px solid #2c2e33 !important;
+    pointer-events: none;
+    user-select: none;
+}
+
+.custom-toggle-wrapper {
+    display: flex;
+    align-items: center;
+    pointer-events: none;
+    user-select: none;
+}
+
+.custom-toggle-wrapper input[type="checkbox"] {
+    display: none;
+}
+
+.toggle-switch-ui {
+    position: relative;
+    display: inline-block;
+    width: 34px;
+    height: 18px;
+    background-color: #fc424a;
+    border-radius: 18px;
+    transition: background-color 0.3s;
+}
+
+.toggle-switch-ui::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 14px;
+    height: 14px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    transition: transform 0.3s;
+}
+
+.custom-toggle-wrapper input[type="checkbox"]:checked + .toggle-switch-ui {
+    background-color: #00d25b;
+}
+
+.custom-toggle-wrapper input[type="checkbox"]:checked + .toggle-switch-ui::after {
+    transform: translateX(16px);
+}
+
+.toggle-status-text {
+    margin-left: 10px;
+    font-size: 0.85rem;
+}
+
+.custom-toggle-wrapper input[type="checkbox"]:not(:checked) ~ .toggle-status-text {
+    color: #fc424a;
+}
+.custom-toggle-wrapper input[type="checkbox"]:checked ~ .toggle-status-text {
+    color: #00d25b;
+}
+
+.toggle-status-text .lbl-on,
+.custom-toggle-wrapper input[type="checkbox"]:checked ~ .toggle-status-text .lbl-off {
+    display: none;
+}
+
+.toggle-status-text .lbl-off,
+.custom-toggle-wrapper input[type="checkbox"]:checked ~ .toggle-status-text .lbl-on {
+    display: inline;
+}
+
+/* Manter a cor do texto igual e evitar o azul do bootstrap no focus */
+.form-control:focus {
+    color: #ffffff !important;
+    background-color: #2A3038 !important;
+}

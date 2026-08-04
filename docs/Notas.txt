@@ -1,0 +1,8 @@
+BD:
+Talvez uma tabela para as localidades?
+Talvez uma tabela para as notificações?
+Talvez uma tabela para os códigos de 2FA?
+
+profile.aspx:
+Os badges de tipo de conta devem ter cores diferentes
+O toggle do 2FA não está a funcionar
