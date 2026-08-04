@@ -834,6 +834,7 @@
     <Content Include="assets\vendors\select2\select2.min.css" />
     <Content Include="assets\vendors\select2\select2.min.js" />
     <Content Include="assets\vendors\typeahead.js\typeahead.bundle.min.js" />
+    <Content Include="dashboard.aspx" />
     <Content Include="gulp-tasks\inject.js" />
     <Content Include="gulp-tasks\serve.js" />
     <Content Include="gulp-tasks\vendors.js" />
@@ -841,9 +842,17 @@
     <Content Include="profile.aspx" />
     <Content Include="register.aspx" />
     <Content Include="reset_password.aspx" />
+    <Content Include="two_factor_authentication.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="dashboard.aspx.cs">
+      <DependentUpon>dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dashboard.aspx.designer.cs">
+      <DependentUpon>dashboard.aspx</DependentUpon>
+    </Compile>
     <Compile Include="hephaestus.Master.cs">
       <DependentUpon>hephaestus.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -879,6 +888,13 @@
     </Compile>
     <Compile Include="reset_password.aspx.designer.cs">
       <DependentUpon>reset_password.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="two_factor_authentication.aspx.cs">
+      <DependentUpon>two_factor_authentication.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="two_factor_authentication.aspx.designer.cs">
+      <DependentUpon>two_factor_authentication.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
