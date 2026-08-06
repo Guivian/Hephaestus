@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\css\style.css" />
+    <Content Include="assets\css\hephaestus-pages.css" />
     <Content Include="assets\images\auth\lockscreen-bg.jpg" />
     <Content Include="assets\images\auth\login-bg.jpg" />
     <Content Include="assets\images\auth\Login_bg.jpg" />
@@ -843,6 +844,8 @@
     <Content Include="profile.aspx" />
     <Content Include="register.aspx" />
     <Content Include="reset_password.aspx" />
+    <Content Include="technician_calendar.aspx" />
+    <Content Include="tickets_listing.aspx" />
     <Content Include="two_factor_authentication.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -896,6 +899,20 @@
     </Compile>
     <Compile Include="reset_password.aspx.designer.cs">
       <DependentUpon>reset_password.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="technician_calendar.aspx.cs">
+      <DependentUpon>technician_calendar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="technician_calendar.aspx.designer.cs">
+      <DependentUpon>technician_calendar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="tickets_listing.aspx.cs">
+      <DependentUpon>tickets_listing.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="tickets_listing.aspx.designer.cs">
+      <DependentUpon>tickets_listing.aspx</DependentUpon>
     </Compile>
     <Compile Include="two_factor_authentication.aspx.cs">
       <DependentUpon>two_factor_authentication.aspx</DependentUpon>
