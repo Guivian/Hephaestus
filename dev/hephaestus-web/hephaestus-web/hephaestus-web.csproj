@@ -837,6 +837,8 @@
     <Content Include="assets\vendors\typeahead.js\typeahead.bundle.min.js" />
     <Content Include="change_password.aspx" />
     <Content Include="dashboard.aspx" />
+    <Content Include="users_management.aspx" />
+    <Content Include="user_form.aspx" />
     <Content Include="gulp-tasks\inject.js" />
     <Content Include="gulp-tasks\serve.js" />
     <Content Include="gulp-tasks\vendors.js" />
@@ -933,7 +935,11 @@
     <Compile Include="ticket_attachments.aspx.designer.cs"><DependentUpon>ticket_attachments.aspx</DependentUpon></Compile>
     <Compile Include="ticket_history.aspx.cs"><DependentUpon>ticket_history.aspx</DependentUpon><SubType>ASPXCodeBehind</SubType></Compile>
     <Compile Include="ticket_history.aspx.designer.cs"><DependentUpon>ticket_history.aspx</DependentUpon></Compile>
-    <Compile Include="two_factor_authentication.aspx.cs">
+    <Compile Include="users_management.aspx.cs"><DependentUpon>users_management.aspx</DependentUpon><SubType>ASPXCodeBehind</SubType></Compile>
+    <Compile Include="users_management.aspx.designer.cs"><DependentUpon>users_management.aspx</DependentUpon></Compile>
+    <Compile Include="user_form.aspx.cs"><DependentUpon>user_form.aspx</DependentUpon><SubType>ASPXCodeBehind</SubType></Compile>
+    <Compile Include="user_form.aspx.designer.cs"><DependentUpon>user_form.aspx</DependentUpon></Compile>
+        <Compile Include="two_factor_authentication.aspx.cs">
       <DependentUpon>two_factor_authentication.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
