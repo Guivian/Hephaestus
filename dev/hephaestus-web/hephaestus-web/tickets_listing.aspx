@@ -8,7 +8,7 @@
                 <span class="page-title-icon mr-3"><i class="mdi mdi-ticket-confirmation"></i></span>
                 <div><h3 class="mb-1">Histórico de Tickets</h3><p class="text-muted mb-0">Consulte, filtre e ordene todos os pedidos registados</p></div>
             </div>
-            <div class="listing-actions d-flex"><button type="button" class="btn btn-outline-light mr-2" title="Exportação disponível na fase de backend"><i class="mdi mdi-download mr-1"></i> Exportar</button><button type="button" class="btn btn-success"><i class="mdi mdi-plus mr-1"></i> Abrir Ticket</button></div>
+            <div class="listing-actions d-flex"><button type="button" class="btn btn-outline-light mr-2" title="Exportação disponível na fase de backend"><i class="mdi mdi-download mr-1"></i> Exportar</button><a href="ticket_create.aspx" class="btn btn-success"><i class="mdi mdi-plus mr-1"></i> Abrir Ticket</a></div>
         </div>
         <div class="card filter-card mb-4">
             <div class="card-body">

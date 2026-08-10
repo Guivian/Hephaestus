@@ -1,4 +1,4 @@
-﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -846,6 +846,13 @@
     <Content Include="reset_password.aspx" />
     <Content Include="technician_calendar.aspx" />
     <Content Include="tickets_listing.aspx" />
+    <Content Include="ticket_create.aspx" />
+    <Content Include="task_create.aspx" />
+    <Content Include="task_detail.aspx" />
+    <Content Include="ticket_detail.aspx" />
+    <Content Include="ticket_attachments.aspx" />
+    <Content Include="ticket_history.aspx" />
+    <Content Include="assets\css\ticket-workspace.css" />
     <Content Include="two_factor_authentication.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -914,6 +921,18 @@
     <Compile Include="tickets_listing.aspx.designer.cs">
       <DependentUpon>tickets_listing.aspx</DependentUpon>
     </Compile>
+    <Compile Include="task_detail.aspx.cs"><DependentUpon>task_detail.aspx</DependentUpon><SubType>ASPXCodeBehind</SubType></Compile>
+    <Compile Include="task_detail.aspx.designer.cs"><DependentUpon>task_detail.aspx</DependentUpon></Compile>
+    <Compile Include="task_create.aspx.cs"><DependentUpon>task_create.aspx</DependentUpon><SubType>ASPXCodeBehind</SubType></Compile>
+    <Compile Include="task_create.aspx.designer.cs"><DependentUpon>task_create.aspx</DependentUpon></Compile>
+    <Compile Include="ticket_create.aspx.cs"><DependentUpon>ticket_create.aspx</DependentUpon><SubType>ASPXCodeBehind</SubType></Compile>
+    <Compile Include="ticket_create.aspx.designer.cs"><DependentUpon>ticket_create.aspx</DependentUpon></Compile>
+    <Compile Include="ticket_detail.aspx.cs"><DependentUpon>ticket_detail.aspx</DependentUpon><SubType>ASPXCodeBehind</SubType></Compile>
+    <Compile Include="ticket_detail.aspx.designer.cs"><DependentUpon>ticket_detail.aspx</DependentUpon></Compile>
+    <Compile Include="ticket_attachments.aspx.cs"><DependentUpon>ticket_attachments.aspx</DependentUpon><SubType>ASPXCodeBehind</SubType></Compile>
+    <Compile Include="ticket_attachments.aspx.designer.cs"><DependentUpon>ticket_attachments.aspx</DependentUpon></Compile>
+    <Compile Include="ticket_history.aspx.cs"><DependentUpon>ticket_history.aspx</DependentUpon><SubType>ASPXCodeBehind</SubType></Compile>
+    <Compile Include="ticket_history.aspx.designer.cs"><DependentUpon>ticket_history.aspx</DependentUpon></Compile>
     <Compile Include="two_factor_authentication.aspx.cs">
       <DependentUpon>two_factor_authentication.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

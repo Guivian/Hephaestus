@@ -6,3 +6,6 @@ Talvez uma tabela para os códigos de 2FA?
 profile.aspx:
 Os badges de tipo de conta devem ter cores diferentes
 O toggle do 2FA não está a funcionar
+
+Outros:
+Rever os ícones e as cores dos estados dos tickets/tarefas e cores dos tipos de perfis
