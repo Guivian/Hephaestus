@@ -11,6 +11,7 @@
         <link rel="stylesheet" href="../../assets/vendors/css/vendor.bundle.base.css">
         <link rel="stylesheet" href="../../assets/css/style.css">
         <link rel="stylesheet" href="../../assets/css/hephaestus-pages.css">
+        <link rel="stylesheet" href="../../assets/css/reporting-pages.css">
         <link rel="stylesheet" href="../../assets/css/ticket-workspace.css">
         <link rel="shortcut icon" />
         <asp:ContentPlaceHolder ID="head" runat="server">
@@ -105,7 +106,10 @@
                                 <span class="menu-icon"><i class="mdi mdi-account-multiple"></i></span>
                                 <span class="menu-title">Utilizadores e T&eacute;cnicos</span>
                             </a>
-                        </li>                    </ul>
+                        </li>
+                        <li class="nav-item menu-items"><a class="nav-link" href="statistics_metrics.aspx"><span class="menu-icon"><i class="mdi mdi-chart-areaspline"></i></span><span class="menu-title">Estat&iacute;sticas e M&eacute;tricas</span></a></li>
+                        <li class="nav-item menu-items"><a class="nav-link" href="data_export.aspx"><span class="menu-icon"><i class="mdi mdi-database-export"></i></span><span class="menu-title">Exporta&ccedil;&atilde;o de Dados</span></a></li>
+                    </ul>
                 </nav>
                 <div class="container-fluid page-body-wrapper">
                     <nav class="navbar p-0 fixed-top d-flex flex-row">

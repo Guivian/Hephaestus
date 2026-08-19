@@ -117,7 +117,7 @@
                     <a href="tickets_listing.aspx" class="dashboard-action"><span class="dashboard-action-icon text-primary"><i class="mdi mdi-format-list-bulleted"></i></span><span><strong>Consultar tickets</strong><small>Pesquisar pedidos e histórico</small></span><i class="mdi mdi-chevron-right"></i></a>
                     <a href="technician_calendar.aspx" class="dashboard-action" data-permission="calendar-view"><span class="dashboard-action-icon text-warning"><i class="mdi mdi-calendar-clock"></i></span><span><strong>Calendário</strong><small>Consultar intervenções planeadas</small></span><i class="mdi mdi-chevron-right"></i></a>
                     <a href="#" class="dashboard-action" data-permission="users-manage"><span class="dashboard-action-icon text-info"><i class="mdi mdi-account-card-details"></i></span><span><strong>Gerir utilizadores</strong><small>Contas, funções e acessos</small></span><i class="mdi mdi-chevron-right"></i></a>
-                    <a href="#" class="dashboard-action" data-permission="reports-view"><span class="dashboard-action-icon text-danger"><i class="mdi mdi-file-chart"></i></span><span><strong>Relatórios</strong><small>Estatísticas e exportações</small></span><i class="mdi mdi-chevron-right"></i></a>
+                    <a href="statistics_metrics.aspx" class="dashboard-action" data-permission="reports-view"><span class="dashboard-action-icon text-danger"><i class="mdi mdi-file-chart"></i></span><span><strong>Relatórios</strong><small>Estatísticas e exportações</small></span><i class="mdi mdi-chevron-right"></i></a>
                 </div>
             </div>
         </section>

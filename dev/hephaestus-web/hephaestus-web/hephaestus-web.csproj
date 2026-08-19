@@ -836,6 +836,11 @@
     <Content Include="assets\vendors\select2\select2.min.js" />
     <Content Include="assets\vendors\typeahead.js\typeahead.bundle.min.js" />
     <Content Include="change_password.aspx" />
+    <Content Include="assets\css\reporting-pages.css" />
+    <Content Include="statistics_metrics.aspx" />
+    <Content Include="data_export.aspx" />
+    <Content Include="error_404.aspx" />
+    <Content Include="error_500.aspx" />
     <Content Include="dashboard.aspx" />
     <Content Include="users_management.aspx" />
     <Content Include="user_form.aspx" />
@@ -866,6 +871,14 @@
     <Compile Include="change_password.aspx.designer.cs">
       <DependentUpon>change_password.aspx</DependentUpon>
     </Compile>
+    <Compile Include="statistics_metrics.aspx.cs"><DependentUpon>statistics_metrics.aspx</DependentUpon><SubType>ASPXCodeBehind</SubType></Compile>
+    <Compile Include="statistics_metrics.aspx.designer.cs"><DependentUpon>statistics_metrics.aspx</DependentUpon></Compile>
+    <Compile Include="data_export.aspx.cs"><DependentUpon>data_export.aspx</DependentUpon><SubType>ASPXCodeBehind</SubType></Compile>
+    <Compile Include="data_export.aspx.designer.cs"><DependentUpon>data_export.aspx</DependentUpon></Compile>
+    <Compile Include="error_404.aspx.cs"><DependentUpon>error_404.aspx</DependentUpon><SubType>ASPXCodeBehind</SubType></Compile>
+    <Compile Include="error_404.aspx.designer.cs"><DependentUpon>error_404.aspx</DependentUpon></Compile>
+    <Compile Include="error_500.aspx.cs"><DependentUpon>error_500.aspx</DependentUpon><SubType>ASPXCodeBehind</SubType></Compile>
+    <Compile Include="error_500.aspx.designer.cs"><DependentUpon>error_500.aspx</DependentUpon></Compile>
     <Compile Include="dashboard.aspx.cs">
       <DependentUpon>dashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
