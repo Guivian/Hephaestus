@@ -16,7 +16,7 @@
                             <label for="txtPasswordAtual">Palavra-passe Atual</label>
                             <asp:TextBox ID="txtPasswordAtual" runat="server" CssClass="form-control" TextMode="Password" placeholder="Palavra-passe atual"></asp:TextBox>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="txtNovaPassword">Nova Palavra-passe</label>
                             <asp:TextBox ID="txtNovaPassword" runat="server" CssClass="form-control" TextMode="Password" placeholder="Nova palavra-passe"></asp:TextBox>
@@ -26,7 +26,7 @@
                             <label for="txtConfirmarPassword">Confirmar Nova Palavra-passe</label>
                             <asp:TextBox ID="txtConfirmarPassword" runat="server" CssClass="form-control" TextMode="Password" placeholder="Confirme a nova palavra-passe"></asp:TextBox>
                         </div>
-                        
+
                         <div class="mt-4">
                             <asp:Button ID="btnGuardarPassword" runat="server" Text="Alterar Palavra-passe" CssClass="btn btn-primary mr-2" />
                             <a href="profile.aspx" class="btn btn-light">Cancelar</a>

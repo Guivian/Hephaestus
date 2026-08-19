@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
+
     <head runat="server">
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -12,6 +13,7 @@
         <link rel="stylesheet" href="../../assets/css/style.css" />
         <link rel="shortcut icon" />
     </head>
+
     <body>
         <form id="form1" runat="server">
             <div class="container-scroller">
@@ -53,7 +55,6 @@
             <script>
                 document.addEventListener('DOMContentLoaded', function() {
                     const inputs = document.querySelectorAll('.digit-input');
-                    
                     inputs.forEach((input, index) => {
                         input.addEventListener('input', function(e) {
                             this.value = this.value.replace(/[^0-9]/g, '');
@@ -63,7 +64,6 @@
                                 }
                             }
                         });
-
                         input.addEventListener('keydown', function(e) {
                             if (e.key === 'Backspace') {
                                 if (this.value === '') {
@@ -74,18 +74,15 @@
                                 }
                             }
                         });
-
                         input.addEventListener('paste', function(e) {
                             e.preventDefault();
                             const pastedData = (e.clipboardData || window.clipboardData).getData('text');
                             const digits = pastedData.replace(/[^0-9]/g, '').slice(0, 6);
-                            
                             for (let i = 0; i < digits.length; i++) {
                                 if (i < inputs.length) {
                                     inputs[i].value = digits[i];
                                 }
                             }
-                            
                             if (digits.length > 0) {
                                 const focusIndex = Math.min(digits.length, inputs.length - 1);
                                 inputs[focusIndex].focus();
@@ -96,4 +93,5 @@
             </script>
         </form>
     </body>
+
 </html>

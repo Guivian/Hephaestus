@@ -1,12 +1,157 @@
 ﻿<%@ Page Title="Gerir Conta" Language="C#" MasterPageFile="~/hephaestus.Master" AutoEventWireup="true" CodeBehind="user_form.aspx.cs" Inherits="hephaestus_web.user_form" %>
 <asp:Content ID="HeadContent" ContentPlaceHolderID="head" runat="server"></asp:Content>
 <asp:Content ID="MainContent" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-<div class="admin-users-page account-page"><div class="workspace-breadcrumb mb-3"><a href="users_management.aspx">Gestão de Utilizadores</a><i class="mdi mdi-chevron-right"></i><span id="formBreadcrumbLabel">Criar conta</span></div>
-<div class="d-flex align-items-center mb-4"><span class="page-title-icon mr-3"><i class="mdi mdi-account-plus"></i></span><div><h3 id="formPageTitle" class="mb-1">Criar nova conta</h3><p id="formPageSubtitle" class="text-muted mb-0">Registe um utilizador, técnico ou membro da gestão</p></div></div>
-<div class="row"><div class="col-xl-8 grid-margin"><div class="card account-form-card"><div class="card-body"><form id="accountForm" novalidate>
-<section class="account-form-section"><div class="account-form-heading"><span><i class="mdi mdi-account-card-details"></i></span><div><h4>Dados da conta</h4><p>Informação base correspondente à tabela Users</p></div></div><div class="row"><div class="col-md-6"><div class="form-group"><label for="fullName">Nome completo *</label><input id="fullName" class="form-control" maxlength="100" required placeholder="Ex.: Sofia Fernandes" /><div class="invalid-feedback">Indique o nome completo.</div></div></div><div class="col-md-6"><div class="form-group"><label for="email">Email *</label><input id="email" type="email" class="form-control" maxlength="150" required placeholder="nome@empresa.pt" /><div class="invalid-feedback">Indique um email válido.</div></div></div></div></section>
-<section class="account-form-section"><div class="account-form-heading"><span><i class="mdi mdi-shield-account"></i></span><div><h4>Perfil e acesso</h4><p>Defina o nível de acesso e a localidade operacional</p></div></div><div class="row"><div class="col-md-6"><div class="form-group"><label for="accountRole">Perfil *</label><select id="accountRole" class="form-control" required><option value="">Selecione...</option><option>Admin</option><option>Gestor</option><option>Técnico</option><option>Utilizador</option></select><div class="invalid-feedback">Selecione um perfil.</div></div></div><div class="col-md-6"><div class="form-group"><label for="accountLocation">Localidade</label><select id="accountLocation" class="form-control"><option value="">Sem localidade</option><option>Lisboa</option><option>Porto</option></select><small class="form-text text-muted">Obrigatória para técnicos.</small></div></div></div><div id="roleNote" class="role-note"><i class="mdi mdi-information-outline mr-1"></i>Selecione um perfil para consultar as regras aplicáveis.</div></section>
-<section class="account-form-section"><div class="account-form-heading"><span><i class="mdi mdi-lock"></i></span><div><h4>Segurança</h4><p>Opções preparadas para o fluxo de autenticação</p></div></div><div class="row"><div class="col-md-6"><div class="switch-field"><div><strong>Conta ativa</strong><small id="activeAccountHelp">Permitir acesso após criação</small></div><label class="admin-switch"><input id="isActive" type="checkbox" checked /><span></span></label></div></div><div class="col-md-6"><div class="switch-field"><div><strong>Autenticação em dois fatores</strong><small id="twoFactorHelp">Opcional para este perfil</small></div><label class="admin-switch"><input id="is2FA" type="checkbox" /><span></span></label></div></div></div></section>
-<div class="d-flex justify-content-end mt-4"><a href="users_management.aspx" class="btn btn-outline-light mr-2">Cancelar</a><button type="submit" class="btn btn-success"><i class="mdi mdi-content-save mr-1"></i><span id="submitButtonLabel">Criar conta</span></button></div></form></div></div></div>
-<div class="col-xl-4"><div class="card form-side-note"><div class="card-body"><h4 id="sideNoteTitle" class="card-title">O que acontece a seguir?</h4><ul><li><i class="mdi mdi-check-circle"></i>O backend irá carregar e guardar os dados da conta.</li><li><i class="mdi mdi-check-circle"></i>Os perfis definem as permissões disponíveis.</li><li><i class="mdi mdi-check-circle"></i>A redefinição da palavra-passe será tratada separadamente.</li><li><i class="mdi mdi-check-circle"></i>O 2FA é obrigatório para técnicos.</li></ul></div></div></div></div></div><div id="adminFeedback" class="admin-feedback" aria-live="polite"></div>
-<script>(function(){var form=document.getElementById('accountForm'),role=document.getElementById('accountRole'),loc=document.getElementById('accountLocation'),twofa=document.getElementById('is2FA'),notes={Admin:'Acesso total às funções administrativas da plataforma.',Gestor:'Pode consultar métricas e gerir operações da equipa.',Técnico:'Conta criada por um administrador, com 2FA e localidade obrigatórios.',Utilizador:'Acesso aos próprios tickets e dados de perfil.'};var parameters=new URLSearchParams(window.location.search),accountId=parameters.get('id'),requested=parameters.get('role'),isEdit=!!accountId;if(requested)role.value=requested;if(isEdit){document.title='Editar Conta';document.getElementById('formBreadcrumbLabel').textContent='Editar conta';document.getElementById('formPageTitle').textContent='Editar conta';document.getElementById('formPageSubtitle').textContent='Atualize os dados, permissões e segurança da conta';document.getElementById('submitButtonLabel').textContent='Guardar alterações';document.getElementById('activeAccountHelp').textContent='Permitir o acesso desta conta';document.getElementById('sideNoteTitle').textContent='Dados da conta';}function sync(){var tech=role.value==='Técnico';twofa.checked=tech;twofa.disabled=tech;loc.required=tech;document.getElementById('twoFactorHelp').textContent=tech?'Obrigatório para técnicos':'Opcional para este perfil';document.getElementById('roleNote').innerHTML='<i class="mdi mdi-information-outline mr-1"></i>'+(notes[role.value]||'Selecione um perfil para consultar as regras aplicáveis.')}role.onchange=sync;form.onsubmit=function(e){e.preventDefault();form.classList.add('was-validated');if(!form.checkValidity())return;var f=document.getElementById('adminFeedback');f.textContent=isEdit?'Alterações validadas. A gravação será ligada ao backend C#.':'Dados validados. A gravação será ligada ao backend C#.';f.classList.add('show');setTimeout(function(){f.classList.remove('show')},2800)};sync()}());</script></asp:Content>
+    <div class="admin-users-page account-page">
+        <div class="workspace-breadcrumb mb-3"><a href="users_management.aspx">Gestão de Utilizadores</a><i class="mdi mdi-chevron-right"></i><span id="formBreadcrumbLabel">Criar conta</span></div>
+        <div class="d-flex align-items-center mb-4"><span class="page-title-icon mr-3"><i class="mdi mdi-account-plus"></i></span>
+            <div>
+                <h3 id="formPageTitle" class="mb-1">Criar nova conta</h3>
+                <p id="formPageSubtitle" class="text-muted mb-0">Registe um utilizador, técnico ou membro da gestão</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xl-8 grid-margin">
+                <div class="card account-form-card">
+                    <div class="card-body">
+                        <form id="accountForm" novalidate>
+                            <section class="account-form-section">
+                                <div class="account-form-heading"><span><i class="mdi mdi-account-card-details"></i></span>
+                                    <div>
+                                        <h4>Dados da conta</h4>
+                                        <p>Informação base correspondente à tabela Users</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group"><label for="fullName">Nome completo *</label><input id="fullName" class="form-control" maxlength="100" required placeholder="Ex.: Sofia Fernandes" />
+                                            <div class="invalid-feedback">Indique o nome completo.</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group"><label for="email">Email *</label><input id="email" type="email" class="form-control" maxlength="150" required placeholder="nome@empresa.pt" />
+                                            <div class="invalid-feedback">Indique um email válido.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <section class="account-form-section">
+                                <div class="account-form-heading"><span><i class="mdi mdi-shield-account"></i></span>
+                                    <div>
+                                        <h4>Perfil e acesso</h4>
+                                        <p>Defina o nível de acesso e a localidade operacional</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group"><label for="accountRole">Perfil *</label><select id="accountRole" class="form-control" required>
+                                                <option value="">Selecione...</option>
+                                                <option>Admin</option>
+                                                <option>Gestor</option>
+                                                <option>Técnico</option>
+                                                <option>Utilizador</option>
+                                            </select>
+                                            <div class="invalid-feedback">Selecione um perfil.</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group"><label for="accountLocation">Localidade</label><select id="accountLocation" class="form-control">
+                                                <option value="">Sem localidade</option>
+                                                <option>Lisboa</option>
+                                                <option>Porto</option>
+                                            </select><small class="form-text text-muted">Obrigatória para técnicos.</small></div>
+                                    </div>
+                                </div>
+                                <div id="roleNote" class="role-note"><i class="mdi mdi-information-outline mr-1"></i>Selecione um perfil para consultar as regras aplicáveis.</div>
+                            </section>
+                            <section class="account-form-section">
+                                <div class="account-form-heading"><span><i class="mdi mdi-lock"></i></span>
+                                    <div>
+                                        <h4>Segurança</h4>
+                                        <p>Opções preparadas para o fluxo de autenticação</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="switch-field">
+                                            <div><strong>Conta ativa</strong><small id="activeAccountHelp">Permitir acesso após criação</small></div><label class="admin-switch"><input id="isActive" type="checkbox" checked /><span></span></label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="switch-field">
+                                            <div><strong>Autenticação em dois fatores</strong><small id="twoFactorHelp">Opcional para este perfil</small></div><label class="admin-switch"><input id="is2FA" type="checkbox" /><span></span></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <div class="d-flex justify-content-end mt-4"><a href="users_management.aspx" class="btn btn-outline-light mr-2">Cancelar</a><button type="submit" class="btn btn-success"><i class="mdi mdi-content-save mr-1"></i><span id="submitButtonLabel">Criar conta</span></button></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4">
+                <div class="card form-side-note">
+                    <div class="card-body">
+                        <h4 id="sideNoteTitle" class="card-title">O que acontece a seguir?</h4>
+                        <ul>
+                            <li><i class="mdi mdi-check-circle"></i>O backend irá carregar e guardar os dados da conta.</li>
+                            <li><i class="mdi mdi-check-circle"></i>Os perfis definem as permissões disponíveis.</li>
+                            <li><i class="mdi mdi-check-circle"></i>A redefinição da palavra-passe será tratada separadamente.</li>
+                            <li><i class="mdi mdi-check-circle"></i>O 2FA é obrigatório para técnicos.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="adminFeedback" class="admin-feedback" aria-live="polite"></div>
+    <script>
+        (function() {
+            var form = document.getElementById('accountForm'),
+                role = document.getElementById('accountRole'),
+                loc = document.getElementById('accountLocation'),
+                twofa = document.getElementById('is2FA'),
+                notes = {
+                    Admin: 'Acesso total às funções administrativas da plataforma.',
+                    Gestor: 'Pode consultar métricas e gerir operações da equipa.',
+                    Técnico: 'Conta criada por um administrador, com 2FA e localidade obrigatórios.',
+                    Utilizador: 'Acesso aos próprios tickets e dados de perfil.'
+                };
+            var parameters = new URLSearchParams(window.location.search),
+                accountId = parameters.get('id'),
+                requested = parameters.get('role'),
+                isEdit = !!accountId;
+            if (requested) role.value = requested;
+            if (isEdit) {
+                document.title = 'Editar Conta';
+                document.getElementById('formBreadcrumbLabel').textContent = 'Editar conta';
+                document.getElementById('formPageTitle').textContent = 'Editar conta';
+                document.getElementById('formPageSubtitle').textContent = 'Atualize os dados, permissões e segurança da conta';
+                document.getElementById('submitButtonLabel').textContent = 'Guardar alterações';
+                document.getElementById('activeAccountHelp').textContent = 'Permitir o acesso desta conta';
+                document.getElementById('sideNoteTitle').textContent = 'Dados da conta';
+            }
+
+            function sync() {
+                var tech = role.value === 'Técnico';
+                twofa.checked = tech;
+                twofa.disabled = tech;
+                loc.required = tech;
+                document.getElementById('twoFactorHelp').textContent = tech ? 'Obrigatório para técnicos' : 'Opcional para este perfil';
+                document.getElementById('roleNote').innerHTML = '<i class="mdi mdi-information-outline mr-1"></i>' + (notes[role.value] || 'Selecione um perfil para consultar as regras aplicáveis.')
+            }
+            role.onchange = sync;
+            form.onsubmit = function(e) {
+                e.preventDefault();
+                form.classList.add('was-validated');
+                if (!form.checkValidity()) return;
+                var f = document.getElementById('adminFeedback');
+                f.textContent = isEdit ? 'Alterações validadas. A gravação será ligada ao backend C#.' : 'Dados validados. A gravação será ligada ao backend C#.';
+                f.classList.add('show');
+                setTimeout(function() {
+                    f.classList.remove('show')
+                }, 2800)
+            };
+            sync()
+        }());
+    </script>
+</asp:Content>

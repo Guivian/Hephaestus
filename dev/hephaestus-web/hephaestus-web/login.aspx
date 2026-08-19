@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
+
     <head runat="server">
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -12,6 +13,7 @@
         <link rel="stylesheet" href="../../assets/css/style.css" />
         <link rel="shortcut icon" />
     </head>
+
     <body>
         <form id="form1" runat="server">
             <div class="container-scroller">
@@ -75,4 +77,5 @@
             <script src="../../assets/js/todolist.js"></script>
         </form>
     </body>
+
 </html>

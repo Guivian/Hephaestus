@@ -1,18 +1,204 @@
 <%@ Page Title="Detalhe de Ticket" Language="C#" MasterPageFile="~/hephaestus.Master" AutoEventWireup="true" CodeBehind="ticket_detail.aspx.cs" Inherits="hephaestus_web.ticket_detail" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server"></asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
- <div class="ticket-workspace detail-page">
-  <nav class="workspace-breadcrumb mb-3"><a href="tickets_listing.aspx">Tickets e tarefas</a><i class="mdi mdi-chevron-right"></i><span>—</span></nav>
-  <div class="detail-hero card mb-4"><div class="card-body"><div class="d-flex flex-wrap justify-content-between align-items-start"><div class="d-flex"><span class="detail-type-icon type-sup"><i class="mdi mdi-lifebuoy"></i></span><div><div class="d-flex flex-wrap align-items-center mb-1"><strong class="detail-reference mr-2">—</strong><span id="heroStatus" class="badge status-badge">—</span></div><h3 id="detailTitle">Ticket não carregado</h3><p class="text-muted mb-0">Os dados do ticket serão apresentados pelo backend.</p></div></div><div class="detail-actions mt-3 mt-lg-0"><button id="editTicket" type="button" class="btn btn-outline-light"><i class="mdi mdi-pencil mr-1"></i> Editar</button><button id="changeStatus" type="button" class="btn btn-warning" data-toggle="modal" data-target="#statusModal"><i class="mdi mdi-swap-horizontal mr-1"></i> Alterar estado</button><button type="button" class="btn btn-primary"><i class="mdi mdi-account-check mr-1"></i> Atribuir a mim</button><a href="task_create.aspx?ticket=—" class="btn btn-success"><i class="mdi mdi-plus mr-1"></i> Criar tarefa</a></div></div></div></div>
-  <div class="workspace-tabs mb-4"><a class="active" href="ticket_detail.aspx"><i class="mdi mdi-information-outline"></i>Detalhe</a><a href="ticket_attachments.aspx"><i class="mdi mdi-paperclip"></i>Anexos <span>3</span></a><a href="ticket_history.aspx"><i class="mdi mdi-message-text-outline"></i>Comentários / Histórico <span>8</span></a></div>
-  <div class="row"><div class="col-xl-8">
-   <div class="card mb-4"><div class="card-body"><div class="d-flex justify-content-between align-items-center"><h4 class="card-title">Descrição do pedido</h4><span id="editingLabel" class="badge badge-outline-primary d-none"><i class="mdi mdi-pencil mr-1"></i>Modo de edição</span></div><div id="detailView"><p id="detailDescription" class="detail-description">—</p><div class="detail-context"><div><small>Equipamento / contexto</small><strong id="detailEquipment">—</strong></div><div><small>Localidade</small><strong id="detailLocation">—</strong></div></div></div><div id="detailEdit" class="d-none"><div class="form-group"><label for="editTitle">Título</label><input id="editTitle" class="form-control" maxlength="200" /></div><div class="row"><div class="col-md-6"><div class="form-group"><label for="editEquipment">Equipamento</label><input id="editEquipment" class="form-control" maxlength="150" /></div></div><div class="col-md-6"><div class="form-group"><label for="editLocation">Localidade</label><select id="editLocation" class="form-control"><option value="">Selecione uma localidade</option><option>Lisboa</option><option>Porto</option><option>Remoto</option><option>Outra localização</option></select></div></div></div><div class="form-group"><label for="editDescription">Descrição</label><textarea id="editDescription" class="form-control" rows="6"></textarea></div><div class="text-right"><button id="cancelEdit" type="button" class="btn btn-outline-secondary mr-2">Cancelar</button><button id="saveEdit" type="button" class="btn btn-success"><i class="mdi mdi-content-save mr-1"></i> Guardar alterações</button></div></div></div></div>
-   <div class="card"><div class="card-body"><div class="d-flex justify-content-between align-items-center mb-3"><h4 class="card-title mb-0">Tarefas associadas</h4><a href="task_create.aspx?ticket=—" class="btn btn-outline-success btn-sm"><i class="mdi mdi-plus mr-1"></i> Nova tarefa</a></div><div class="task-list"><div class="empty-state"><i class="mdi mdi-clipboard-text-clock-outline d-block h2"></i><div class="text-white mb-1">Sem tarefas associadas</div><small>As tarefas criadas para este ticket serão apresentadas aqui.</small></div></div></div></div>
-  </div><aside class="col-xl-4 mt-4 mt-xl-0"><div class="card mb-4"><div class="card-body"><h4 class="card-title">Informação do ticket</h4><dl class="detail-metadata"><dt>Tipo</dt><dd>—</dd><dt>Prioridade</dt><dd>—</dd><dt>Estado</dt><dd><span id="metadataStatus" class="badge status-badge">—</span></dd><dt>Técnico responsável</dt><dd>Por atribuir</dd><dt>Data de abertura</dt><dd>—</dd><dt>Última atualização</dt><dd>—</dd></dl></div></div><div class="card"><div class="card-body"><h4 class="card-title">Atividade recente</h4><div class="empty-state py-4"><i class="mdi mdi-history d-block h3"></i><small>Sem atividade para apresentar.</small></div><a class="btn btn-outline-primary btn-block mt-3" href="ticket_history.aspx">Ver histórico completo</a></div></div></aside></div>
- </div>
-  <div class="modal fade" id="statusModal" tabindex="-1" role="dialog" aria-labelledby="statusModalTitle" aria-hidden="true"><div class="modal-dialog modal-dialog-centered" role="document"><div class="modal-content ticket-modal"><div class="modal-header"><div><h5 id="statusModalTitle" class="modal-title">Alterar estado do ticket</h5><small class="text-muted">— · Estado atual: <strong id="currentStatusText">—</strong></small></div><button type="button" class="close text-white" data-dismiss="modal" aria-label="Fechar"><span aria-hidden="true">&times;</span></button></div><div class="modal-body"><label for="newStatus">Novo estado</label><select id="newStatus" class="form-control"><option>Open</option><option>Assigned</option><option>Pending</option><option>WIP</option><option>Resolved</option><option>Closed</option></select><div class="form-group mt-3 mb-0"><label for="statusReason">Motivo / observação</label><textarea id="statusReason" class="form-control" rows="3" placeholder="Opcional: indique o motivo da alteração"></textarea></div><div class="workspace-note mt-3"><i class="mdi mdi-information-outline"></i><p>A alteração será adicionada ao histórico e, após integração com o backend, notificará os intervenientes.</p></div></div><div class="modal-footer"><button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancelar</button><button id="confirmStatus" type="button" class="btn btn-warning"><i class="mdi mdi-check mr-1"></i> Confirmar estado</button></div></div></div></div>
-  <div id="ticketFeedback" class="ticket-feedback" role="status" aria-live="polite"></div>
-  <script>
-  (function(){'use strict';var editButton=document.getElementById('editTicket'),view=document.getElementById('detailView'),form=document.getElementById('detailEdit'),label=document.getElementById('editingLabel');function setEditing(active){view.classList.toggle('d-none',active);form.classList.toggle('d-none',!active);label.classList.toggle('d-none',!active);editButton.classList.toggle('active',active);editButton.innerHTML=active?'<i class="mdi mdi-close mr-1"></i> Fechar edição':'<i class="mdi mdi-pencil mr-1"></i> Editar';}function loadForm(){document.getElementById('editTitle').value=document.getElementById('detailTitle').textContent.trim();document.getElementById('editEquipment').value=document.getElementById('detailEquipment').textContent.trim();document.getElementById('editLocation').value=document.getElementById('detailLocation').textContent.trim();document.getElementById('editDescription').value=document.getElementById('detailDescription').textContent.trim();}function feedback(message){var el=document.getElementById('ticketFeedback');el.textContent=message;el.classList.add('show');window.setTimeout(function(){el.classList.remove('show');},2800);}editButton.addEventListener('click',function(){var opening=form.classList.contains('d-none');if(opening)loadForm();setEditing(opening);});document.getElementById('cancelEdit').addEventListener('click',function(){setEditing(false);});document.getElementById('saveEdit').addEventListener('click',function(){var title=document.getElementById('editTitle'),equipment=document.getElementById('editEquipment'),description=document.getElementById('editDescription');if(!title.value.trim()||!equipment.value.trim()||!description.value.trim()){[title,equipment,description].forEach(function(c){c.classList.toggle('is-invalid',!c.value.trim());});return;}document.getElementById('detailTitle').textContent=title.value.trim();document.getElementById('detailEquipment').textContent=equipment.value.trim();document.getElementById('detailLocation').textContent=document.getElementById('editLocation').value;document.getElementById('detailDescription').textContent=description.value.trim();setEditing(false);feedback('Alterações guardadas localmente no protótipo.');});var statusClasses={Open:'status-open',Assigned:'status-assigned',Pending:'status-pending',WIP:'status-wip',Resolved:'status-resolved',Closed:'status-closed'};document.getElementById('confirmStatus').addEventListener('click',function(){var status=document.getElementById('newStatus').value;['heroStatus','metadataStatus'].forEach(function(id){var badge=document.getElementById(id);Object.keys(statusClasses).forEach(function(key){badge.classList.remove(statusClasses[key]);});badge.classList.add(statusClasses[status]);badge.textContent=status;});document.getElementById('currentStatusText').textContent=status;$('#statusModal').modal('hide');feedback('Estado alterado para '+status+' no protótipo.');});}());
-  </script>
+    <div class="ticket-workspace detail-page">
+        <nav class="workspace-breadcrumb mb-3"><a href="tickets_listing.aspx">Tickets e tarefas</a><i class="mdi mdi-chevron-right"></i><span>—</span></nav>
+        <div class="detail-hero card mb-4">
+            <div class="card-body">
+                <div class="d-flex flex-wrap justify-content-between align-items-start">
+                    <div class="d-flex"><span class="detail-type-icon type-sup"><i class="mdi mdi-lifebuoy"></i></span>
+                        <div>
+                            <div class="d-flex flex-wrap align-items-center mb-1"><strong class="detail-reference mr-2">—</strong><span id="heroStatus" class="badge status-badge">—</span></div>
+                            <h3 id="detailTitle">Ticket não carregado</h3>
+                            <p class="text-muted mb-0">Os dados do ticket serão apresentados pelo backend.</p>
+                        </div>
+                    </div>
+                    <div class="detail-actions mt-3 mt-lg-0"><button id="editTicket" type="button" class="btn btn-outline-light"><i class="mdi mdi-pencil mr-1"></i> Editar</button><button id="changeStatus" type="button" class="btn btn-warning" data-toggle="modal" data-target="#statusModal"><i class="mdi mdi-swap-horizontal mr-1"></i> Alterar estado</button><button type="button" class="btn btn-primary"><i class="mdi mdi-account-check mr-1"></i> Atribuir a mim</button><a href="task_create.aspx?ticket=—" class="btn btn-success"><i class="mdi mdi-plus mr-1"></i> Criar tarefa</a></div>
+                </div>
+            </div>
+        </div>
+        <div class="workspace-tabs mb-4"><a class="active" href="ticket_detail.aspx"><i class="mdi mdi-information-outline"></i>Detalhe</a><a href="ticket_attachments.aspx"><i class="mdi mdi-paperclip"></i>Anexos <span>3</span></a><a href="ticket_history.aspx"><i class="mdi mdi-message-text-outline"></i>Comentários / Histórico <span>8</span></a></div>
+        <div class="row">
+            <div class="col-xl-8">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h4 class="card-title">Descrição do pedido</h4><span id="editingLabel" class="badge badge-outline-primary d-none"><i class="mdi mdi-pencil mr-1"></i>Modo de edição</span>
+                        </div>
+                        <div id="detailView">
+                            <p id="detailDescription" class="detail-description">—</p>
+                            <div class="detail-context">
+                                <div><small>Equipamento / contexto</small><strong id="detailEquipment">—</strong></div>
+                                <div><small>Localidade</small><strong id="detailLocation">—</strong></div>
+                            </div>
+                        </div>
+                        <div id="detailEdit" class="d-none">
+                            <div class="form-group"><label for="editTitle">Título</label><input id="editTitle" class="form-control" maxlength="200" /></div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group"><label for="editEquipment">Equipamento</label><input id="editEquipment" class="form-control" maxlength="150" /></div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group"><label for="editLocation">Localidade</label><select id="editLocation" class="form-control">
+                                            <option value="">Selecione uma localidade</option>
+                                            <option>Lisboa</option>
+                                            <option>Porto</option>
+                                            <option>Remoto</option>
+                                            <option>Outra localização</option>
+                                        </select></div>
+                                </div>
+                            </div>
+                            <div class="form-group"><label for="editDescription">Descrição</label><textarea id="editDescription" class="form-control" rows="6"></textarea></div>
+                            <div class="text-right"><button id="cancelEdit" type="button" class="btn btn-outline-secondary mr-2">Cancelar</button><button id="saveEdit" type="button" class="btn btn-success"><i class="mdi mdi-content-save mr-1"></i> Guardar alterações</button></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h4 class="card-title mb-0">Tarefas associadas</h4><a href="task_create.aspx?ticket=—" class="btn btn-outline-success btn-sm"><i class="mdi mdi-plus mr-1"></i> Nova tarefa</a>
+                        </div>
+                        <div class="task-list">
+                            <div class="empty-state"><i class="mdi mdi-clipboard-text-clock-outline d-block h2"></i>
+                                <div class="text-white mb-1">Sem tarefas associadas</div><small>As tarefas criadas para este ticket serão apresentadas aqui.</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <aside class="col-xl-4 mt-4 mt-xl-0">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h4 class="card-title">Informação do ticket</h4>
+                        <dl class="detail-metadata">
+                            <dt>Tipo</dt>
+                            <dd>—</dd>
+                            <dt>Prioridade</dt>
+                            <dd>—</dd>
+                            <dt>Estado</dt>
+                            <dd><span id="metadataStatus" class="badge status-badge">—</span></dd>
+                            <dt>Técnico responsável</dt>
+                            <dd>Por atribuir</dd>
+                            <dt>Data de abertura</dt>
+                            <dd>—</dd>
+                            <dt>Última atualização</dt>
+                            <dd>—</dd>
+                        </dl>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Atividade recente</h4>
+                        <div class="empty-state py-4"><i class="mdi mdi-history d-block h3"></i><small>Sem atividade para apresentar.</small></div><a class="btn btn-outline-primary btn-block mt-3" href="ticket_history.aspx">Ver histórico completo</a>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+    <div class="modal fade" id="statusModal" tabindex="-1" role="dialog" aria-labelledby="statusModalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content ticket-modal">
+                <div class="modal-header">
+                    <div>
+                        <h5 id="statusModalTitle" class="modal-title">Alterar estado do ticket</h5><small class="text-muted">— · Estado atual: <strong id="currentStatusText">—</strong></small>
+                    </div><button type="button" class="close text-white" data-dismiss="modal" aria-label="Fechar"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="modal-body"><label for="newStatus">Novo estado</label><select id="newStatus" class="form-control">
+                        <option>Open</option>
+                        <option>Assigned</option>
+                        <option>Pending</option>
+                        <option>WIP</option>
+                        <option>Resolved</option>
+                        <option>Closed</option>
+                    </select>
+                    <div class="form-group mt-3 mb-0"><label for="statusReason">Motivo / observação</label><textarea id="statusReason" class="form-control" rows="3" placeholder="Opcional: indique o motivo da alteração"></textarea></div>
+                    <div class="workspace-note mt-3"><i class="mdi mdi-information-outline"></i>
+                        <p>A alteração será adicionada ao histórico e, após integração com o backend, notificará os intervenientes.</p>
+                    </div>
+                </div>
+                <div class="modal-footer"><button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancelar</button><button id="confirmStatus" type="button" class="btn btn-warning"><i class="mdi mdi-check mr-1"></i> Confirmar estado</button></div>
+            </div>
+        </div>
+    </div>
+    <div id="ticketFeedback" class="ticket-feedback" role="status" aria-live="polite"></div>
+    <script>
+        (function() {
+            'use strict';
+            var editButton = document.getElementById('editTicket'),
+                view = document.getElementById('detailView'),
+                form = document.getElementById('detailEdit'),
+                label = document.getElementById('editingLabel');
+
+            function setEditing(active) {
+                view.classList.toggle('d-none', active);
+                form.classList.toggle('d-none', !active);
+                label.classList.toggle('d-none', !active);
+                editButton.classList.toggle('active', active);
+                editButton.innerHTML = active ? '<i class="mdi mdi-close mr-1"></i> Fechar edição' : '<i class="mdi mdi-pencil mr-1"></i> Editar';
+            }
+
+            function loadForm() {
+                document.getElementById('editTitle').value = document.getElementById('detailTitle').textContent.trim();
+                document.getElementById('editEquipment').value = document.getElementById('detailEquipment').textContent.trim();
+                document.getElementById('editLocation').value = document.getElementById('detailLocation').textContent.trim();
+                document.getElementById('editDescription').value = document.getElementById('detailDescription').textContent.trim();
+            }
+
+            function feedback(message) {
+                var el = document.getElementById('ticketFeedback');
+                el.textContent = message;
+                el.classList.add('show');
+                window.setTimeout(function() {
+                    el.classList.remove('show');
+                }, 2800);
+            }
+            editButton.addEventListener('click', function() {
+                var opening = form.classList.contains('d-none');
+                if (opening) loadForm();
+                setEditing(opening);
+            });
+            document.getElementById('cancelEdit').addEventListener('click', function() {
+                setEditing(false);
+            });
+            document.getElementById('saveEdit').addEventListener('click', function() {
+                var title = document.getElementById('editTitle'),
+                    equipment = document.getElementById('editEquipment'),
+                    description = document.getElementById('editDescription');
+                if (!title.value.trim() || !equipment.value.trim() || !description.value.trim()) {
+                    [title, equipment, description].forEach(function(c) {
+                        c.classList.toggle('is-invalid', !c.value.trim());
+                    });
+                    return;
+                }
+                document.getElementById('detailTitle').textContent = title.value.trim();
+                document.getElementById('detailEquipment').textContent = equipment.value.trim();
+                document.getElementById('detailLocation').textContent = document.getElementById('editLocation').value;
+                document.getElementById('detailDescription').textContent = description.value.trim();
+                setEditing(false);
+                feedback('Alterações guardadas localmente no protótipo.');
+            });
+            var statusClasses = {
+                Open: 'status-open',
+                Assigned: 'status-assigned',
+                Pending: 'status-pending',
+                WIP: 'status-wip',
+                Resolved: 'status-resolved',
+                Closed: 'status-closed'
+            };
+            document.getElementById('confirmStatus').addEventListener('click', function() {
+                var status = document.getElementById('newStatus').value;
+                ['heroStatus', 'metadataStatus'].forEach(function(id) {
+                    var badge = document.getElementById(id);
+                    Object.keys(statusClasses).forEach(function(key) {
+                        badge.classList.remove(statusClasses[key]);
+                    });
+                    badge.classList.add(statusClasses[status]);
+                    badge.textContent = status;
+                });
+                document.getElementById('currentStatusText').textContent = status;
+                $('#statusModal').modal('hide');
+                feedback('Estado alterado para ' + status + ' no protótipo.');
+            });
+        }());
+    </script>
 </asp:Content>

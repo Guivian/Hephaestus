@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
+
     <head runat="server">
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -12,6 +13,7 @@
         <link rel="stylesheet" href="../../assets/css/style.css" />
         <link rel="shortcut icon" />
     </head>
+
     <body>
         <form id="form1" runat="server">
             <div class="container-scroller">
@@ -59,8 +61,8 @@
                                                 </div>
                                             </button>
                                         </div>
-                                        <p class="sign-up text-center mt-3">J&aacute; tem uma conta? <a href="login.aspx">Entrar</a></p>
-                                        <p class="terms text-center">Ao criar uma conta est&aacute; a aceitar os nossos <a href="#">Termos &amp; Condi&ccedil;&otilde;es</a></p>
+                                        <p class="sign-up text-center mt-3">Já tem uma conta? <a href="login.aspx">Entrar</a></p>
+                                        <p class="terms text-center">Ao criar uma conta está a aceitar os nossos <a href="#">Termos &amp; Condições</a></p>
                                     </div>
                                 </div>
                             </div>
@@ -76,4 +78,5 @@
             <script src="../../assets/js/todolist.js"></script>
         </form>
     </body>
+
 </html>
