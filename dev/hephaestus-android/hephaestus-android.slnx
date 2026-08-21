@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="hephaestus-android/hephaestus-android.csproj">
+    <Deploy />
+  </Project>
+</Solution>

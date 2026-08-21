@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="app_name_caps">HEPHAESTUS</string>
+    <string name="app_name">Hephaestus</string>
+    <string name="login_title">Iniciar sessão</string>
+    <string name="email">Email</string>
+    <string name="password">Palavra-passe</string>
+    <string name="login">Entrar</string>
+	<string name="google_login">Entrar com Google</string>
+	<string name="remember">Manter email</string>
+	<string name="forgot_password">Esqueceu a palavra-passe?</string>
+	<string name="change_password">Alterar palavra-passe</string>
+	<string name="min_8chars">Use pelo menos 8 caracteres.</string>
+	<string name="current_password">Palavra-passe atual</string>
+	<string name="new_password">Nova palavra-passe</string>
+	<string name="confirm_new_password">Confirmar nova palavra-passe</string>
+	<string name="confirm">Confirmar</string>
+	<string name="cancel">Cancelar</string>
+	<string name="hello">Olá</string>
+	<string name="welcome">Bem-vindo à aplicação de suporte.</string>
+	<string name="profile">Perfil</string>
+	<string name="account_informations">INFORMAÇÕES DA CONTA</string>
+	<string name="locality">Localidade</string>
+	<string name="two_factor_authentication">Autenticação de 2 fatores</string>
+	<string name="disabled">Desativada</string>
+	<string name="sign_out">Terminar sessão</string>
+	<string name="two_step_verification">Verificação em dois passos</string>
+	<string name="insert_email_code">Introduza o código de 6 dígitos enviado para o seu email.</string>
+	<string name="code_input_hint">• • • • • •</string>
+	<string name="resend_code">Reenviar código</string>
+	<string name="back_to_login">Voltar ao login</string>
+	<string name="start">Início</string>
+	<string name="tickets">Tickets</string>
+</resources>
