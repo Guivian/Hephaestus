@@ -25,6 +25,9 @@ internal static class BottomNavigation
         activity.FindViewById<Android.Views.View>(Resource.Id.homeTab)!.Click += (_, _) =>
             Navigate<HomeActivity>(activity, activeTab != NavigationTab.Home);
 
+        activity.FindViewById<Android.Views.View>(Resource.Id.ticketsTab)!.Click += (_, _) =>
+            Navigate<QuickTicketActivity>(activity, activeTab != NavigationTab.Tickets);
+
         activity.FindViewById<Android.Views.View>(Resource.Id.profileTab)!.Click += (_, _) =>
             Navigate<ProfileActivity>(activity, activeTab != NavigationTab.Profile);
     }

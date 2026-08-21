@@ -31,4 +31,26 @@
 	<string name="back_to_login">Voltar ao login</string>
 	<string name="start">Início</string>
 	<string name="tickets">Tickets</string>
+	<string name="new_ticket">Abrir ticket</string>
+	<string name="quick_open">ABERTURA RÁPIDA</string>
+	<string name="new_ticket_instruction">Registe a avaria e fotografe o problema no local.</string>
+	<string name="ticket_type">Tipo de pedido *</string>
+	<string name="support">Suporte (SUP)</string>
+	<string name="service">Serviço (SVC)</string>
+	<string name="new_ticket_title">Título *</string>
+	<string name="new_ticket_title_hint">Ex.: Computador não inicia</string>
+	<string name="new_ticket_title_counter">0/200</string>
+	<string name="new_ticket_equipment">Equipamento *</string>
+	<string name="new_ticket_equipment_hint">Nome ou código patrimonial</string>
+	<string name="new_ticket_locality">Localidade *</string>
+	<string name="new_ticket_description">Descrição *</string>
+	<string name="new_ticket_description_hint">Sintomas, mensagens de erro e quando começou…</string>
+	<string name="new_ticket_priority">Prioridade sugerida *</string>
+	<string name="new_ticket_priority_info">A prioridade será confirmada pelo técnico responsável.</string>
+	<string name="new_ticket_pictures">Fotografias da avaria</string>
+	<string name="new_ticket_pictures_info">Pode anexar várias fotografias para facilitar o diagnóstico.</string>
+	<string name="new_ticket_open_camera">ABRIR CÂMARA</string>
+	<string name="new_ticket_picture_pre_visualization">Pré-visualização da última fotografia</string>
+	<string name="new_ticket_create_ticket">CRIAR TICKET</string>
+	<string name="remove">Remover</string>
 </resources>

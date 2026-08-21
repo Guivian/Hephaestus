@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@color/background"
+	android:orientation="vertical">
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="72dp"
+		android:background="@color/surface"
+		android:gravity="center_vertical"
+		android:paddingHorizontal="20dp">
+
+		<TextView
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:text="@string/new_ticket"
+			android:textColor="@color/text_primary"
+			android:textSize="23sp"
+			android:textStyle="bold" />
+
+		<TextView
+			android:id="@+id/headerInitials"
+			android:layout_width="42dp"
+			android:layout_height="42dp"
+			android:background="@drawable/input_background"
+			android:gravity="center"
+			android:textColor="@color/text_primary"
+			android:textStyle="bold" />
+	</LinearLayout>
+
+	<ScrollView
+		android:layout_width="match_parent"
+		android:layout_height="0dp"
+		android:layout_weight="1"
+		android:fillViewport="true">
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical"
+			android:padding="20dp">
+
+			<TextView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:text="@string/quick_open"
+				android:textColor="@color/primary"
+				android:textStyle="bold" />
+
+			<TextView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="4dp"
+				android:layout_marginBottom="18dp"
+				android:text="@string/new_ticket_instruction"
+				android:textColor="@color/text_secondary" />
+
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:background="@drawable/card_background"
+				android:orientation="vertical"
+				android:padding="18dp">
+
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="@string/ticket_type"
+					android:textColor="@color/text_primary"
+					android:textStyle="bold" />
+
+				<RadioGroup
+					android:id="@+id/ticketTypeGroup"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginTop="6dp"
+					android:orientation="horizontal">
+
+					<RadioButton
+						android:id="@+id/supportType"
+						android:layout_width="0dp"
+						android:layout_height="48dp"
+						android:layout_weight="1"
+						android:buttonTint="@color/primary"
+						android:checked="true"
+						android:text="@string/support"
+						android:textColor="@color/text_primary" />
+
+					<RadioButton
+						android:id="@+id/serviceType"
+						android:layout_width="0dp"
+						android:layout_height="48dp"
+						android:layout_weight="1"
+						android:buttonTint="@color/primary"
+						android:text="@string/service"
+						android:textColor="@color/text_primary" />
+				</RadioGroup>
+
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginTop="10dp"
+					android:text="@string/new_ticket_title"
+					android:textColor="@color/text_primary"
+					android:textStyle="bold" />
+
+				<EditText
+					android:id="@+id/ticketTitle"
+					style="@style/InputField"
+					android:hint="@string/new_ticket_title_hint"
+					android:maxLength="200"
+					android:singleLine="true" />
+
+				<TextView
+					android:id="@+id/titleCounter"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:gravity="end"
+					android:text="@string/new_ticket_title_counter"
+					android:textColor="@color/text_secondary"
+					android:textSize="12sp" />
+
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginTop="10dp"
+					android:text="@string/new_ticket_equipment"
+					android:textColor="@color/text_primary"
+					android:textStyle="bold" />
+
+				<EditText
+					android:id="@+id/ticketEquipment"
+					style="@style/InputField"
+					android:hint="@string/new_ticket_equipment_hint"
+					android:maxLength="150"
+					android:singleLine="true" />
+
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginTop="4dp"
+					android:text="@string/new_ticket_locality"
+					android:textColor="@color/text_primary"
+					android:textStyle="bold" />
+
+				<Spinner
+					android:id="@+id/ticketLocation"
+					android:layout_width="match_parent"
+					android:layout_height="56dp"
+					android:layout_marginTop="8dp"
+					android:layout_marginBottom="12dp"
+					android:background="@drawable/input_background"
+					android:paddingHorizontal="12dp" />
+
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="@string/new_ticket_description"
+					android:textColor="@color/text_primary"
+					android:textStyle="bold" />
+
+				<EditText
+					android:id="@+id/ticketDescription"
+					android:layout_width="match_parent"
+					android:layout_height="120dp"
+					android:layout_marginTop="8dp"
+					android:layout_marginBottom="12dp"
+					android:background="@drawable/input_background"
+					android:gravity="top|start"
+					android:hint="@string/new_ticket_description_hint"
+					android:inputType="textCapSentences|textMultiLine"
+					android:padding="16dp"
+					android:textColor="@color/text_primary"
+					android:textColorHint="@color/text_secondary" />
+
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="@string/new_ticket_priority"
+					android:textColor="@color/text_primary"
+					android:textStyle="bold" />
+
+				<Spinner
+					android:id="@+id/ticketPriority"
+					android:layout_width="match_parent"
+					android:layout_height="56dp"
+					android:layout_marginTop="8dp"
+					android:background="@drawable/input_background"
+					android:paddingHorizontal="12dp" />
+
+				<TextView
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginTop="6dp"
+					android:text="@string/new_ticket_priority_info"
+					android:textColor="@color/text_secondary"
+					android:textSize="12sp" />
+			</LinearLayout>
+
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="16dp"
+				android:background="@drawable/card_background"
+				android:orientation="vertical"
+				android:padding="18dp">
+
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="@string/new_ticket_pictures"
+					android:textColor="@color/text_primary"
+					android:textStyle="bold" />
+
+				<TextView
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginTop="4dp"
+					android:text="@string/new_ticket_pictures_info"
+					android:textColor="@color/text_secondary" />
+
+				<Button
+					android:id="@+id/capturePhotoButton"
+					android:layout_width="match_parent"
+					android:layout_height="52dp"
+					android:layout_marginTop="14dp"
+					android:background="@drawable/camera_button_background"
+					android:text="@string/new_ticket_open_camera"
+					android:textColor="@color/text_primary"
+					android:textStyle="bold" />
+
+				<ImageView
+					android:id="@+id/photoPreview"
+					android:layout_width="match_parent"
+					android:layout_height="190dp"
+					android:layout_marginTop="12dp"
+					android:background="@drawable/photo_preview_background"
+					android:contentDescription="@string/new_ticket_picture_pre_visualization"
+					android:scaleType="centerCrop"
+					android:visibility="gone" />
+
+				<LinearLayout
+					android:id="@+id/photoActions"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginTop="8dp"
+					android:gravity="center_vertical"
+					android:visibility="gone">
+
+					<TextView
+						android:id="@+id/photoCount"
+						android:layout_width="0dp"
+						android:layout_height="wrap_content"
+						android:layout_weight="1"
+						android:textColor="@color/success"
+						android:textStyle="bold" />
+
+					<Button
+						android:id="@+id/removePhotosButton"
+						android:layout_width="wrap_content"
+						android:layout_height="44dp"
+						android:backgroundTint="@color/surface_light"
+						android:text="@string/remove"
+						android:textColor="@color/danger" />
+				</LinearLayout>
+			</LinearLayout>
+
+			<TextView
+				android:id="@+id/formError"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="12dp"
+				android:textColor="@color/danger"
+				android:visibility="gone" />
+
+			<Button
+				android:id="@+id/createTicketButton"
+				style="@style/PrimaryButton"
+				android:layout_marginTop="16dp"
+				android:layout_marginBottom="20dp"
+				android:text="@string/new_ticket_create_ticket" />
+		</LinearLayout>
+	</ScrollView>
+
+	<include layout="@layout/bottom_navigation" />
+</LinearLayout>
