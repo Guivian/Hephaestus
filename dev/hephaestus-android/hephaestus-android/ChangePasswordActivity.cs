@@ -11,5 +11,6 @@ public class ChangePasswordActivity : Activity
         SetContentView(Resource.Layout.activity_change_password);
 
         FindViewById<Button>(Resource.Id.cancelButton)!.Click += (_, _) => Finish();
+        BottomNavigation.Setup(this, NavigationTab.Profile);
     }
 }

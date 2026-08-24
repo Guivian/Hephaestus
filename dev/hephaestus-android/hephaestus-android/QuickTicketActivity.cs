@@ -6,7 +6,6 @@ using Android.OS;
 using Android.Provider;
 using Android.Views;
 using Android.Widget;
-using System.Text.Json.Nodes;
 
 namespace hephaestus_android;
 
@@ -52,7 +51,7 @@ public class QuickTicketActivity : Activity
         formError = FindViewById<TextView>(Resource.Id.formError)!;
 
         FindViewById<TextView>(Resource.Id.headerInitials)!.Text = SessionStore.Initials(this);
-        ConfigureSpinner(location, ["Selecione uma localidade", "Lisboa", "Porto", "Remoto", "Outra localização"]);
+        ConfigureSpinner(location, ["Localidades disponíveis após integração com a API"]);
         RefreshPriorities();
         FindViewById<RadioGroup>(Resource.Id.ticketTypeGroup)!.CheckedChange += (_, _) => RefreshPriorities();
         title.TextChanged += (_, _) => FindViewById<TextView>(Resource.Id.titleCounter)!.Text = $"{title.Text?.Length ?? 0}/200";
@@ -72,10 +71,7 @@ public class QuickTicketActivity : Activity
 
     void RefreshPriorities()
     {
-        var values = supportType.Checked
-            ? new[] { "P1 · Crítico", "P2 · Alto", "P3 · Médio", "P4 · Baixo" }
-            : new[] { "P1 · Urgente", "P2 · Prioritário", "P3 · Normal", "P4 · Flexível" };
-        ConfigureSpinner(priority, values, 2);
+        ConfigureSpinner(priority, ["Prioridades disponíveis após integração com a API"]);
     }
 
     void RequestCamera()
@@ -166,34 +162,16 @@ public class QuickTicketActivity : Activity
         description.Error = string.IsNullOrWhiteSpace(description.Text) ? "Descreva o pedido." : null;
         if (title.Error is not null || equipment.Error is not null || description.Error is not null || location.SelectedItemPosition == 0)
         {
-            ShowError(location.SelectedItemPosition == 0 ? "Selecione a localidade e preencha os campos obrigatórios." : "Preencha os campos obrigatórios.");
+            ShowError(location.SelectedItemPosition == 0
+                ? "A submissão ficará disponível quando as localidades forem carregadas pela API."
+                : "Preencha os campos obrigatórios.");
             return;
         }
 
-        var reference = $"{(supportType.Checked ? "SUP" : "SVC")}{DateTime.UtcNow:MMddHHmm}";
-        var draft = new JsonObject
-        {
-            ["ReferenceCode"] = reference,
-            ["TicketType"] = supportType.Checked ? "SUP" : "SVC",
-            ["Title"] = title.Text!.Trim(),
-            ["Description"] = description.Text!.Trim(),
-            ["Equipment"] = equipment.Text!.Trim(),
-            ["Location"] = location.SelectedItem!.ToString(),
-            ["Priority"] = priority.SelectedItem!.ToString()![..2],
-            ["Status"] = "Open",
-            ["CreatedAt"] = DateTime.UtcNow,
-            ["Photos"] = new JsonArray(photoUris.Select(uri => JsonValue.Create(uri.ToString())).ToArray())
-        };
-        var preferences = GetSharedPreferences("hephaestus_tickets", FileCreationMode.Private)!;
-        var editor = preferences.Edit()!;
-        editor.PutString(reference, draft.ToJsonString());
-        editor.Apply();
-
         var dialog = new AlertDialog.Builder(this);
-        dialog.SetTitle("Ticket criado");
-        dialog.SetMessage($"{reference} foi registado com o estado Open e {photoUris.Count} fotografia(s).");
-        dialog.SetPositiveButton("Concluir", (_, _) => ClearForm());
-        dialog.SetCancelable(false);
+        dialog.SetTitle("Submissão indisponível");
+        dialog.SetMessage("O ticket não foi submetido. Esta operação ficará disponível após a integração com a API.");
+        dialog.SetPositiveButton("Entendido", (_, _) => { });
         dialog.Show();
     }
 

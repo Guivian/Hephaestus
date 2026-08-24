@@ -2,65 +2,218 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/background">
-	
+    android:background="@color/background"
+    android:orientation="vertical">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="72dp"
+        android:background="@color/surface"
         android:gravity="center_vertical"
-        android:paddingHorizontal="20dp"
-        android:background="@color/surface">
-		
+        android:paddingHorizontal="20dp">
+
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-			android:text="@string/app_name_caps"
+            android:text="@string/app_name_caps"
             android:textColor="@color/primary"
-            android:textStyle="bold"
-            android:textSize="20sp" />
-		
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
         <TextView
             android:id="@+id/headerInitials"
             android:layout_width="42dp"
             android:layout_height="42dp"
             android:background="@drawable/input_background"
             android:gravity="center"
-            android:text=""
             android:textColor="@color/text_primary"
             android:textStyle="bold" />
     </LinearLayout>
-	
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1">
-		
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="20dp">
-			
+
             <TextView
                 android:id="@+id/welcomeText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/hello"
                 android:textColor="@color/text_primary"
                 android:textSize="26sp"
                 android:textStyle="bold" />
-			
-            <TextView
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="24dp"
-                android:text="@string/welcome"
-                android:textColor="@color/text_secondary" />
-			
+                android:layout_marginBottom="20dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/homeDate"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/connectivityStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/technicianHome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="88dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/metricToday"
+                        style="@style/HomeMetric">
+
+                        <TextView style="@style/HomeMetricValue" />
+                        <TextView style="@style/HomeMetricLabel" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/metricProgress"
+                        style="@style/HomeMetric">
+
+                        <TextView style="@style/HomeMetricValue" />
+                        <TextView style="@style/HomeMetricLabel" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/metricAttention"
+                        style="@style/HomeMetric">
+
+                        <TextView style="@style/HomeMetricValue" />
+                        <TextView style="@style/HomeMetricLabel" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <TextView
+                    style="@style/HomeSectionTitle"
+                    android:layout_marginTop="22dp"
+                    android:text="PRÓXIMA INTERVENÇÃO" />
+
+                <LinearLayout
+                    android:id="@+id/nextTask"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+
+                <LinearLayout style="@style/HomeSectionHeader">
+
+                    <TextView
+                        style="@style/HomeSectionTitle"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:text="AGENDA DE HOJE" />
+
+                    <Button
+                        android:id="@+id/viewAllTasks"
+                        style="@style/ActivityViewAllButton"
+                        android:text="Ver agenda" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/todayAgenda"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+
+                <LinearLayout style="@style/HomeSectionHeader">
+
+                    <TextView
+                        style="@style/HomeSectionTitle"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:text="REQUEREM ATENÇÃO" />
+
+                    <Button
+                        android:id="@+id/viewAllTickets"
+                        style="@style/ActivityViewAllButton"
+                        android:text="Ver todos" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/attentionTickets"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+
+                <TextView
+                    style="@style/HomeSectionTitle"
+                    android:layout_marginTop="18dp"
+                    android:text="ATIVIDADE RECENTE" />
+
+                <LinearLayout
+                    android:id="@+id/homeActivity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/userHome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <Button
+                    android:id="@+id/homeOpenTicket"
+                    style="@style/PrimaryButton"
+                    android:text="ABRIR NOVO TICKET" />
+
+                <Button
+                    android:id="@+id/homeViewTickets"
+                    style="@style/TaskStatusButton"
+                    android:backgroundTint="@color/surface_light"
+                    android:text="Consultar os meus tickets" />
+
+                <TextView
+                    style="@style/HomeSectionTitle"
+                    android:layout_marginTop="22dp"
+                    android:text="PEDIDOS ATIVOS" />
+
+                <LinearLayout
+                    android:id="@+id/userActiveTickets"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+
+                <TextView
+                    style="@style/HomeSectionTitle"
+                    android:layout_marginTop="18dp"
+                    android:text="ATIVIDADE RECENTE" />
+
+                <LinearLayout
+                    android:id="@+id/userRecentActivity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
-	
+
     <include layout="@layout/bottom_navigation" />
 </LinearLayout>

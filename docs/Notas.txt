@@ -2,6 +2,7 @@ BD:
 Talvez uma tabela para as localidades?
 Talvez uma tabela para as notificações?
 Talvez uma tabela para os códigos de 2FA?
+Adicionar uma tabela para a descrição da Tarefa
 
 web:
 profile.aspx:

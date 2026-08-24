@@ -31,6 +31,7 @@
 	<string name="back_to_login">Voltar ao login</string>
 	<string name="start">Início</string>
 	<string name="tickets">Tickets</string>
+	<string name="tasks">Tarefas</string>
 	<string name="new_ticket">Abrir ticket</string>
 	<string name="quick_open">ABERTURA RÁPIDA</string>
 	<string name="new_ticket_instruction">Registe a avaria e fotografe o problema no local.</string>
