@@ -46,7 +46,7 @@ public class HomeActivity : Activity
         var today = tasks.Where(task => task.ScheduledStart.Date == DateTime.Today).ToList();
         var inProgress = tasks.Count(task => task.Status == "In Progress");
         var attention = TaskRepository.AllTickets.Count(ticket => ticket.Priority is "P1" or "P2" || ticket.Status is "Open" or "Pending");
-        SetMetric(Resource.Id.metricToday, today.Count, "Hoje", () => Open<TasksActivity>());
+        SetMetric(Resource.Id.metricToday, today.Count, "Hoje", () => Open<AgendaActivity>());
         SetMetric(Resource.Id.metricProgress, inProgress, "Em progresso", () => Open<TasksActivity>());
         SetMetric(Resource.Id.metricAttention, attention, "Atenção", () => Open<TicketsActivity>());
 

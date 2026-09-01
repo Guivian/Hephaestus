@@ -7,33 +7,7 @@
     android:orientation="horizontal"
     android:paddingTop="5dp"
     android:paddingBottom="4dp">
-	
-    <LinearLayout
-        android:id="@+id/homeTab"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:clickable="true"
-        android:focusable="true"
-        android:gravity="center"
-        android:orientation="vertical">
-		
-        <ImageView
-            android:id="@+id/homeTabIcon"
-            android:layout_width="22dp"
-            android:layout_height="22dp"
-            android:contentDescription=""
-            android:src="@drawable/ic_home" />
-		
-        <TextView
-            android:id="@+id/homeTabLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="3dp"
-            android:text="@string/start"
-            android:textSize="12sp" />
-    </LinearLayout>
-	
+
     <LinearLayout
         android:id="@+id/ticketsTab"
         android:layout_width="0dp"
@@ -43,14 +17,14 @@
         android:focusable="true"
         android:gravity="center"
         android:orientation="vertical">
-		
+
         <ImageView
             android:id="@+id/ticketsTabIcon"
             android:layout_width="22dp"
             android:layout_height="22dp"
             android:contentDescription=""
             android:src="@drawable/ic_ticket" />
-		
+
         <TextView
             android:id="@+id/ticketsTabLabel"
             android:layout_width="wrap_content"
@@ -69,14 +43,12 @@
         android:focusable="true"
         android:gravity="center"
         android:orientation="vertical">
-
         <ImageView
             android:id="@+id/tasksTabIcon"
             android:layout_width="22dp"
             android:layout_height="22dp"
             android:contentDescription=""
             android:src="@drawable/ic_task" />
-
         <TextView
             android:id="@+id/tasksTabLabel"
             android:layout_width="wrap_content"
@@ -85,7 +57,57 @@
             android:text="@string/tasks"
             android:textSize="12sp" />
     </LinearLayout>
-	
+
+    <LinearLayout
+        android:id="@+id/homeTab"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:orientation="vertical">
+        <ImageView
+            android:id="@+id/homeTabIcon"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:contentDescription=""
+            android:src="@drawable/ic_home" />
+        <TextView
+            android:id="@+id/homeTabLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:text="@string/start"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/agendaTab"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/agendaTabIcon"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:contentDescription=""
+            android:src="@drawable/ic_calendar" />
+
+        <TextView
+            android:id="@+id/agendaTabLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:text="@string/schedule"
+            android:textSize="12sp" />
+    </LinearLayout>
+
     <LinearLayout
         android:id="@+id/profileTab"
         android:layout_width="0dp"
@@ -95,14 +117,14 @@
         android:focusable="true"
         android:gravity="center"
         android:orientation="vertical">
-		
+
         <ImageView
             android:id="@+id/profileTabIcon"
             android:layout_width="22dp"
             android:layout_height="22dp"
             android:contentDescription=""
             android:src="@drawable/ic_profile" />
-		
+
         <TextView
             android:id="@+id/profileTabLabel"
             android:layout_width="wrap_content"

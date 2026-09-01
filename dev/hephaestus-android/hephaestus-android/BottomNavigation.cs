@@ -7,9 +7,10 @@ namespace hephaestus_android;
 
 internal enum NavigationTab
 {
-    Home,
     Tickets,
     Tasks,
+    Home,
+    Agenda,
     Profile
 }
 
@@ -24,10 +25,14 @@ internal static class BottomNavigation
         activity.FindViewById<Android.Views.View>(Resource.Id.tasksTab)!.Visibility = technician
             ? Android.Views.ViewStates.Visible
             : Android.Views.ViewStates.Gone;
+        activity.FindViewById<Android.Views.View>(Resource.Id.agendaTab)!.Visibility = technician
+            ? Android.Views.ViewStates.Visible
+            : Android.Views.ViewStates.Gone;
 
         ConfigureTab(activity, Resource.Id.homeTabIcon, Resource.Id.homeTabLabel, activeTab == NavigationTab.Home);
         ConfigureTab(activity, Resource.Id.ticketsTabIcon, Resource.Id.ticketsTabLabel, activeTab == NavigationTab.Tickets);
         ConfigureTab(activity, Resource.Id.tasksTabIcon, Resource.Id.tasksTabLabel, activeTab == NavigationTab.Tasks);
+        ConfigureTab(activity, Resource.Id.agendaTabIcon, Resource.Id.agendaTabLabel, activeTab == NavigationTab.Agenda);
         ConfigureTab(activity, Resource.Id.profileTabIcon, Resource.Id.profileTabLabel, activeTab == NavigationTab.Profile);
 
         activity.FindViewById<Android.Views.View>(Resource.Id.homeTab)!.Click += (_, _) =>
@@ -38,6 +43,9 @@ internal static class BottomNavigation
 
         activity.FindViewById<Android.Views.View>(Resource.Id.tasksTab)!.Click += (_, _) =>
             Navigate<TasksActivity>(activity, activeTab, NavigationTab.Tasks);
+
+        activity.FindViewById<Android.Views.View>(Resource.Id.agendaTab)!.Click += (_, _) =>
+            Navigate<AgendaActivity>(activity, activeTab, NavigationTab.Agenda);
 
         activity.FindViewById<Android.Views.View>(Resource.Id.profileTab)!.Click += (_, _) =>
             Navigate<ProfileActivity>(activity, activeTab, NavigationTab.Profile);

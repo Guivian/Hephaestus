@@ -7,14 +7,7 @@ public class MainActivity : Activity
     {
         base.OnCreate(savedInstanceState);
 
-        if (SessionStore.IsSignedIn(this))
-        {
-            StartActivity(new Android.Content.Intent(this, typeof(HomeActivity)));
-            Finish();
-            return;
-        }
-
+        SessionStore.SignOut(this);
         SetContentView(Resource.Layout.activity_main);
-
     }
 }

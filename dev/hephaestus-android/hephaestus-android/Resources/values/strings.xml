@@ -54,4 +54,5 @@
 	<string name="new_ticket_picture_pre_visualization">Pré-visualização da última fotografia</string>
 	<string name="new_ticket_create_ticket">CRIAR TICKET</string>
 	<string name="remove">Remover</string>
+	<string name="schedule">Agenda</string>
 </resources>

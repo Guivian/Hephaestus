@@ -11,7 +11,7 @@ internal static class SessionStore
     public static string Get(Context c, string key, string fallback) => Prefs(c).GetString(key, fallback) ?? fallback;
     public static bool TwoFactor(Context c) => Prefs(c).GetBoolean("two_factor", false);
 
-    public static void SignOut(Context c) => Prefs(c).Edit()!.PutBoolean("signed_in", false)!.Remove("name")!.Remove("email")!.Remove("role")!.Apply();
+    public static void SignOut(Context c) => Prefs(c).Edit()!.PutBoolean("signed_in", false)!.Remove("name")!.Remove("email")!.Remove("role")!.Remove("location")!.Apply();
 
     public static string Initials(Context c) => string.Concat(
         Get(c, "name", "")
