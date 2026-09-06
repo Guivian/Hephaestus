@@ -1,4 +1,4 @@
-<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="hephaestus_web.login" %>
+<%@ Page Language="C#" Async="true" AutoEventWireup="true" CodeBehind="two_factor_authentication.aspx.cs" Inherits="hephaestus_web.two_factor_authentication" %>
 
 <!DOCTYPE html>
 
@@ -27,18 +27,19 @@
                                         <div class="form-group">
                                             <label class="d-block text-left">Código de 6 dígitos</label>
                                             <div class="d-flex justify-content-between">
-                                                <input type="text" class="form-control p_input text-center digit-input" maxlength="1" style="width: 14%; font-size: 1.5rem; padding: 10px;" />
-                                                <input type="text" class="form-control p_input text-center digit-input" maxlength="1" style="width: 14%; font-size: 1.5rem; padding: 10px;" />
-                                                <input type="text" class="form-control p_input text-center digit-input" maxlength="1" style="width: 14%; font-size: 1.5rem; padding: 10px;" />
-                                                <input type="text" class="form-control p_input text-center digit-input" maxlength="1" style="width: 14%; font-size: 1.5rem; padding: 10px;" />
-                                                <input type="text" class="form-control p_input text-center digit-input" maxlength="1" style="width: 14%; font-size: 1.5rem; padding: 10px;" />
-                                                <input type="text" class="form-control p_input text-center digit-input" maxlength="1" style="width: 14%; font-size: 1.5rem; padding: 10px;" />
+                                                <input name="digit1" type="text" inputmode="numeric" class="form-control p_input text-center digit-input" maxlength="1" style="width: 14%; font-size: 1.5rem; padding: 10px;" />
+                                                <input name="digit2" type="text" inputmode="numeric" class="form-control p_input text-center digit-input" maxlength="1" style="width: 14%; font-size: 1.5rem; padding: 10px;" />
+                                                <input name="digit3" type="text" inputmode="numeric" class="form-control p_input text-center digit-input" maxlength="1" style="width: 14%; font-size: 1.5rem; padding: 10px;" />
+                                                <input name="digit4" type="text" inputmode="numeric" class="form-control p_input text-center digit-input" maxlength="1" style="width: 14%; font-size: 1.5rem; padding: 10px;" />
+                                                <input name="digit5" type="text" inputmode="numeric" class="form-control p_input text-center digit-input" maxlength="1" style="width: 14%; font-size: 1.5rem; padding: 10px;" />
+                                                <input name="digit6" type="text" inputmode="numeric" class="form-control p_input text-center digit-input" maxlength="1" style="width: 14%; font-size: 1.5rem; padding: 10px;" />
                                             </div>
                                         </div>
                                         <div class="text-center">
-                                            <button type="submit" class="btn btn-primary btn-block enter-btn">Confirmar</button>
+                                            <asp:Button ID="btnConfirm" runat="server" CssClass="btn btn-primary btn-block enter-btn" Text="Confirmar" OnClick="btnConfirm_Click" />
                                         </div>
-                                        <p class="sign-up"><a href="register.aspx">Reenviar código </a></p>
+                                        <asp:Label ID="lblError" runat="server" CssClass="text-danger d-block text-center mt-3" />
+                                        <p class="sign-up"><asp:LinkButton ID="btnResend" runat="server" OnClick="btnResend_Click">Reenviar código</asp:LinkButton></p>
                                     </div>
                                 </div>
                             </div>

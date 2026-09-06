@@ -7,6 +7,8 @@
     <string name="password">Palavra-passe</string>
     <string name="login">Entrar</string>
 	<string name="google_login">Entrar com Google</string>
+	<!-- O OAuth Client ID Web é público e é usado como Server Client ID. Nunca adicionar o Client Secret. -->
+	<string name="google_web_client_id">44117104304-obmoa4rk1qas8nhheqiqmuv4gag8nova.apps.googleusercontent.com</string>
 	<string name="remember">Manter email</string>
 	<string name="forgot_password">Esqueceu a palavra-passe?</string>
 	<string name="change_password">Alterar palavra-passe</string>

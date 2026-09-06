@@ -32,6 +32,8 @@ namespace hephaestus_web
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
+        protected global::System.Web.UI.WebControls.LinkButton btnLogout;
+
         /// <summary>
         /// ContentPlaceHolder1 control.
         /// </summary>

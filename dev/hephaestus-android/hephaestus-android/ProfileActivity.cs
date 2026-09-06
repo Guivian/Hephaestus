@@ -40,8 +40,11 @@ public class ProfileActivity : Activity
             dialog.SetTitle("Terminar sessão");
             dialog.SetMessage("Pretende sair da aplicação?");
             dialog.SetNegativeButton("Cancelar", (_, _) => { });
-            dialog.SetPositiveButton("Sair", (_, _) =>
+            dialog.SetPositiveButton("Sair", async (_, _) =>
             {
+                var refreshToken = SessionStore.RefreshToken(this);
+                if (!string.IsNullOrWhiteSpace(refreshToken))
+                    await HephaestusApiClient.LogoutAsync(refreshToken);
                 SessionStore.SignOut(this);
                 StartActivity(new Intent(this, typeof(MainActivity)));
                 FinishAffinity();

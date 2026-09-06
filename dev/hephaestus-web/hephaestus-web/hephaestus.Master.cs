@@ -11,7 +11,21 @@ namespace hephaestus_web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!WebSession.IsAuthenticated || !WebSession.EnsureFreshAccessToken())
+            {
+                WebSession.Clear();
+                Response.Redirect("login.aspx");
+            }
+        }
 
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            var refreshToken = WebSession.RefreshToken;
+            if (!string.IsNullOrWhiteSpace(refreshToken))
+                ApiClient.LogoutAsync(refreshToken).GetAwaiter().GetResult();
+
+            WebSession.Clear();
+            Response.Redirect("login.aspx");
         }
     }
 }

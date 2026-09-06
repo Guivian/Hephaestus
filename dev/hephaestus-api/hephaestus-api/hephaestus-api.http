@@ -1,0 +1,10 @@
+### Use o perfil "http" da API no Visual Studio para executar estes pedidos.
+@api = http://localhost:5022
+
+### Verificar API
+GET {{api}}/api/health
+Accept: application/json
+
+### Verificar base de dados
+GET {{api}}/api/health/database
+Accept: application/json

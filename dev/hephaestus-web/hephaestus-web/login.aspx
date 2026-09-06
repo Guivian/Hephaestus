@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="hephaestus_web.login" %>
+﻿<%@ Page Language="C#" Async="true" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="hephaestus_web.login" %>
 
 <!DOCTYPE html>
 
@@ -26,11 +26,11 @@
                                     <div>
                                         <div class="form-group">
                                             <label>Email</label>
-                                            <input type="text" class="form-control p_input" />
+                                            <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control p_input" TextMode="Email" />
                                         </div>
                                         <div class="form-group">
                                             <label>Palavra-Passe</label>
-                                            <input type="password" class="form-control p_input" />
+                                            <asp:TextBox ID="txtPassword" runat="server" CssClass="form-control p_input" TextMode="Password" />
                                         </div>
                                         <div class="form-group d-flex align-items-center justify-content-between">
                                             <div class="form-check">
@@ -41,10 +41,12 @@
                                             <a href="#" class="forgot-pass">Esqueceu a palavra-passe?</a>
                                         </div>
                                         <div class="text-center">
-                                            <button type="submit" class="btn btn-primary btn-block enter-btn">Entrar</button>
+                                            <asp:Button ID="btnLogin" runat="server" CssClass="btn btn-primary btn-block enter-btn"
+                                                Text="Entrar" OnClick="btnLogin_Click" />
                                         </div>
+                                        <asp:Label ID="lblError" runat="server" CssClass="text-danger d-block text-center mt-3" />
                                         <div class="d-flex">
-                                            <button type="button" class="gsi-material-button w-100 btn-block" style="max-width: 100%;">
+                                            <a href="https://localhost:7225/api/auth/google/web/login" class="gsi-material-button w-100 btn-block" style="max-width: 100%;">
                                                 <div class="gsi-material-button-state"></div>
                                                 <div class="gsi-material-button-content-wrapper justify-content-center">
                                                     <div class="gsi-material-button-icon">
@@ -59,7 +61,7 @@
                                                     <span class="gsi-material-button-contents" style="flex-grow: 0;">Entrar com Google</span>
                                                     <span style="display: none;">Entrar com Google</span>
                                                 </div>
-                                            </button>
+                                            </a>
                                         </div>
                                         <p class="sign-up">Não tem conta? <a href="register.aspx">Registo</a></p>
                                     </div>

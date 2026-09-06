@@ -22,5 +22,9 @@ namespace hephaestus_web
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+
+        protected global::System.Web.UI.WebControls.Button btnConfirm;
+        protected global::System.Web.UI.WebControls.Label lblError;
+        protected global::System.Web.UI.WebControls.LinkButton btnResend;
     }
 }

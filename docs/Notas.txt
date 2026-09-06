@@ -1,18 +1,24 @@
 BD:
 Talvez uma tabela para as localidades?
 Talvez uma tabela para as notificações?
-Talvez uma tabela para os códigos de 2FA?
 Adicionar uma tabela para a descrição da Tarefa
 
 web:
+Aplicar o mesmo funcionamente de na foto do utilizador mostrar as iniciais igual ao android
+
+adicionar toggle para ver a palavra-passe em login, registo e alterar password
+
 profile.aspx:
 Os badges de tipo de conta devem ter cores diferentes
 O toggle do 2FA não está a funcionar
-
-android:
-Corrigir o comportamento com a barra de navegação e a barra de estado do dispositivo
 
 Outros:
 Rever os ícones e as cores dos estados dos tickets/tarefas e cores dos tipos de perfis
 
 Criar página de esqueceu senha (web e android)
+
+necessário fazer stored procedures para as apis
+
+Possibilidade de colar o código 2FA no android
+
+Configurar SMTP e fazer os templates dos e-mails.
